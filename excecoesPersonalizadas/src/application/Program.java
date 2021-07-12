@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
+import javax.management.RuntimeMBeanException;
+
 import model.entities.Reservation;
 import model.exceptions.DomainException;
 
@@ -41,6 +43,9 @@ public class Program {
 		}
 		catch (DomainException e) {
 			System.out.println("Error in reservation: " + e.getMessage());
+		}
+		catch (RuntimeException e) {
+			System.out.println("Unexpected error");
 		}
 		sc.close();
 	}
